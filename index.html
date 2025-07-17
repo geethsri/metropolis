@@ -105,7 +105,7 @@
         .cta-button {
             background: transparent;
             color: var(--primary-color);
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 2rem;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
@@ -154,17 +154,39 @@
 
         .hero-background {
             position: absolute;
-            top: -10%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             opacity: 0.7;
         }
 
         .hero-background > * {
-            width: 100% !important;
-            height: 100% !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            min-width: 100% !important;
+            min-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: cover !important;
+        }
+
+        /* Specific targeting for CrowdRiff embeds */
+        .hero-background iframe,
+        .hero-background img,
+        .hero-background [class*="crowdriff"],
+        .hero-background [class*="cr-"] {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) scale(1.2) !important;
+            min-width: 120% !important;
+            min-height: 120% !important;
+            width: auto !important;
+            height: auto !important;
             object-fit: cover !important;
         }
 
@@ -594,20 +616,17 @@
                 <li><a href="#galleries">Galleries</a></li>
                 <li><a href="#explore">Explore</a></li>
                 <li><a href="#plan">Plan Your Visit</a></li>
-                <li><a href="#book" class="cta-button" aria-label="Book your visit to Metropolis"> Book Your Visit </a></li>
+                <li><a href="#book" class="cta-button" aria-label="Book your visit to Metropolis">Book Your Visit</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main">
         <section class="hero">
-            <div class="hero-background">
-                <script type="text/javascript" id="cr-embed-05170120cffce9368b4586c0" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
-            </div>
             <div class="hero-content">
                 <h1>Welcome to Metropolis</h1>
                 <p>Where urban sophistication meets romantic charm. Discover a city that pulses with energy by day and sparkles with magic by night.</p>
-                <a href="#explore" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">Start Exploring</a>
+                <a href="#explore" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Start Exploring</a>
             </div>
         </section>
 
@@ -652,21 +671,21 @@
 
             <div class="featured-grid">
                 <article class="featured-item">
-                    <h4>Historic City Views</h4>
+                    <h4>Historic Architecture & Culture</h4>
                     <div class="embed-container">
                         <script type="text/javascript" id="cr-embed-2bbb9a692cf2243496914672" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
                     </div>
                 </article>
 
                 <article class="featured-item">
-                    <h4>Nighttime Skyline</h4>
+                    <h4>Vibrant Nightlife Scene</h4>
                     <div class="embed-container">
                         <script type="text/javascript" id="cr-embed-2d824db733c4536f5f03ff86" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
                     </div>
                 </article>
 
                 <article class="featured-item">
-                    <h4>Waterfront Panorama</h4>
+                    <h4>Stunning Waterfront Views</h4>
                     <div class="embed-container">
                         <script type="text/javascript" id="cr-embed-21cf6757cce2b1ae30c62783" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
                     </div>
