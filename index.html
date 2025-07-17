@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Metropolis - A vibrant city where romance meets energy. Plan your perfect urban getaway with stunning skylines, world-class dining, and unforgettable experiences.">
+    <title>Visit Metropolis - Where Romance Meets Energy</title>
+    
+    <style>
+        :root {
+            --primary-color: #402158;
+            --secondary-color: #7d5683;
+            --accent-color: #c9bfb5;
+            --dark-color: #140e36;
+            --light-color: #e2e9ff;
+            --text-color: #140e36;
+            --gradient: linear-gradient(135deg, #140e36 0%, #402158 50%, #7d5683 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Skip to main content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--primary-color);
+            outline: 2px solid transparent;
+        }
+
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(20, 14, 54, 0.3);
+        }
+
+        .cta-button:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 5%;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(20, 14, 54, 0.3) 0%, rgba(20, 14, 54, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(64, 33, 88, 0.1) 0%, transparent 70%);
+            animation: pulse 20s ease-in-out infinite;
+            top: -100%;
+            left: -100%;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            text-shadow: 
+                2px 2px 0 rgba(20, 14, 54, 0.8),
+                -2px 2px 0 rgba(20, 14, 54, 0.8),
+                2px -2px 0 rgba(20, 14, 54, 0.8),
+                -2px -2px 0 rgba(20, 14, 54, 0.8),
+                0 0 20px rgba(20, 14, 54, 0.5);
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            text-shadow: 
+                1px 1px 0 rgba(20, 14, 54, 0.8),
+                -1px 1px 0 rgba(20, 14, 54, 0.8),
+                1px -1px 0 rgba(20, 14, 54, 0.8),
+                -1px -1px 0 rgba(20, 14, 54, 0.8),
+                0 0 15px rgba(20, 14, 54, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gallery Sections */
+        .gallery-section {
+            background: linear-gradient(135deg, rgba(226, 233, 255, 0.5) 0%, rgba(201, 191, 181, 0.2) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(20, 14, 54, 0.05);
+        }
+
+        .gallery-section h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        /* Featured Images Grid */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .featured-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .featured-item h4 {
+            padding: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            background: linear-gradient(135deg, rgba(64, 33, 88, 0.08) 0%, rgba(125, 86, 131, 0.05) 100%);
+        }
+
+        .featured-item .embed-container {
+            padding: 1rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .map-container {
+            min-height: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Experience Cards */
+        .experiences {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .experience-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .experience-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(64, 33, 88, 0.2);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .experience-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 4rem 5% 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: var(--accent-color);
+        }
+
+        .footer-section a:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text-color);
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .gallery-section {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-color: #402158;
+                --secondary-color: #7d5683;
+                --text-color: #000;
+            }
+
+            body {
+                background: white;
+            }
+
+            .cta-button {
+                border: 2px solid currentColor;
+            }
+        }
+
+        /* Focus visible for keyboard navigation */
+        *:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        .cta-button:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        /* Loading state for embeds */
+        .embed-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="logo" role="img" aria-label="Visit Metropolis">Visit Metropolis</div>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#galleries">Galleries</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#plan">Plan Your Visit</a></li>
+                <li><a href="#book" class="cta-button" aria-label="Book your visit to Metropolis">Book Your Visit</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="hero-background">
+                <script type="text/javascript" id="cr-embed-05170120cffce9368b4586c0" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
+            </div>
+            <div class="hero-content">
+                <h1>Welcome to Metropolis</h1>
+                <p>Where urban sophistication meets romantic charm. Discover a city that pulses with energy by day and sparkles with magic by night.</p>
+                <a href="#explore" class="cta-button" style="font-size: 1.1rem; padding: 1rem 2rem;">Start Exploring</a>
+            </div>
+        </section>
+
+        <section id="experiences" aria-labelledby="experiences-heading">
+            <div class="section-header">
+                <h2 id="experiences-heading">Unforgettable Experiences</h2>
+                <p>From sunrise to sunset, Metropolis offers endless adventures for every traveler</p>
+            </div>
+            
+            <div class="experiences">
+                <article class="experience-card">
+                    <div class="experience-icon" aria-hidden="true">🌆</div>
+                    <h3>Skyline Views</h3>
+                    <p>Experience breathtaking panoramas from our iconic observation decks and rooftop lounges</p>
+                </article>
+                
+                <article class="experience-card">
+                    <div class="experience-icon" aria-hidden="true">🍽️</div>
+                    <h3>Culinary Journey</h3>
+                    <p>Savor world-class cuisine from Michelin-starred restaurants to vibrant street food markets</p>
+                </article>
+                
+                <article class="experience-card">
+                    <div class="experience-icon" aria-hidden="true">🎭</div>
+                    <h3>Arts & Culture</h3>
+                    <p>Immerse yourself in our thriving arts scene with galleries, theaters, and live performances</p>
+                </article>
+                
+                <article class="experience-card">
+                    <div class="experience-icon" aria-hidden="true">🌃</div>
+                    <h3>Nightlife</h3>
+                    <p>Dance until dawn in trendy clubs or enjoy intimate jazz bars and rooftop cocktails</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="galleries" aria-labelledby="galleries-heading">
+            <div class="section-header">
+                <h2 id="galleries-heading">Stunning Views of Metropolis</h2>
+                <p>Capture the beauty of our city through every lens</p>
+            </div>
+
+            <div class="featured-grid">
+                <article class="featured-item">
+                    <h4>London Skyline Inspiration</h4>
+                    <div class="embed-container">
+                        <script type="text/javascript" id="cr-embed-2bbb9a692cf2243496914672" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
+                    </div>
+                </article>
+
+                <article class="featured-item">
+                    <h4>Taiwan Night Magic</h4>
+                    <div class="embed-container">
+                        <script type="text/javascript" id="cr-embed-2d824db733c4536f5f03ff86" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
+                    </div>
+                </article>
+
+                <article class="featured-item">
+                    <h4>Toronto Island Views</h4>
+                    <div class="embed-container">
+                        <script type="text/javascript" id="cr-embed-21cf6757cce2b1ae30c62783" src="https://post.crowdriff.com/js/crowdriff.js" async></script>
+                    </div>
+                </article>
+            </div>
+
+            <div class="gallery-section">
+                <h3>Metropolis After Dark</h3>
+                <div class="embed-container">
+                    <script id="cr-init__41c6bbcac0456961" src="https://starling.crowdriff.com/js/crowdriff.js" lang="en" async></script>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3>Golden Hour in the City</h3>
+                <div class="embed-container">
+                    <script id="cr-init__605e02ed9dad416e" src="https://starling.crowdriff.com/js/crowdriff.js" lang="en" async></script>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore" aria-labelledby="explore-heading">
+            <div class="section-header">
+                <h2 id="explore-heading">Explore Every Corner</h2>
+                <p>Navigate through neighborhoods, discover hidden gems, and plan your perfect route</p>
+            </div>
+            
+            <div class="map-section">
+                <div class="map-container">
+                    <script id="cr-init-map__5b09c3c4e705614a" src="https://map-embeds.crowdriff.com/js/crowdriff.js" async></script>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan" aria-labelledby="plan-heading" style="text-align: center;">
+            <div class="section-header">
+                <h2 id="plan-heading">Ready for Your Adventure?</h2>
+                <p>Let us help you create memories that will last a lifetime in Metropolis</p>
+            </div>
+            <a href="#book" class="cta-button" style="font-size: 1.2rem; padding: 1rem 2.5rem;" aria-label="Plan your visit to Metropolis">Plan Your Visit</a>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Explore Metropolis</h4>
+                <ul>
+                    <li><a href="#attractions">Top Attractions</a></li>
+                    <li><a href="#neighborhoods">Neighborhoods</a></li>
+                    <li><a href="#events">Events Calendar</a></li>
+                    <li><a href="#tours">Guided Tours</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Plan Your Trip</h4>
+                <ul>
+                    <li><a href="#hotels">Where to Stay</a></li>
+                    <li><a href="#transport">Getting Around</a></li>
+                    <li><a href="#weather">Weather & Climate</a></li>
+                    <li><a href="#tips">Travel Tips</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#maps">Maps & Guides</a></li>
+                    <li><a href="#visitor-center">Visitor Centers</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <ul>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#social">Social Media</a></li>
+                    <li><a href="#blog">Travel Blog</a></li>
+                    <li><a href="#photos">Share Your Photos</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Visit Metropolis. All rights reserved. | <a href="#privacy" style="color: var(--accent-color);">Privacy Policy</a> | <a href="#terms" style="color: var(--accent-color);">Terms of Use</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const isExpanded = navLinks.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Add loading state for embeds
+        document.querySelectorAll('.embed-container').forEach(container => {
+            if (container.children.length === 1) {
+                const loadingText = document.createElement('div');
+                loadingText.className = 'embed-loading';
+                loadingText.textContent = 'Loading amazing content...';
+                loadingText.setAttribute('aria-live', 'polite');
+                container.appendChild(loadingText);
+                
+                // Remove loading text once embed loads
+                const observer = new MutationObserver(() => {
+                    if (container.children.length > 2) {
+                        loadingText.remove();
+                        observer.disconnect();
+                    }
+                });
+                observer.observe(container, { childList: true });
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe elements
+        document.querySelectorAll('.experience-card, .featured-item, .gallery-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
